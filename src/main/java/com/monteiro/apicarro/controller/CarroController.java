@@ -28,7 +28,7 @@ public class CarroController {
         }
     }
     @GetMapping("/placa/{placa}")
-    public ResponseEntity<Optional<Carro>>buscarPelaPlaca(@PathVariable("id") String placa){
+    public ResponseEntity<Optional<Carro>>buscarPelaPlaca(@PathVariable("placa") String placa){
             Optional<Carro> carro = carroService.buscarPelaPlaca(placa);
 
 
