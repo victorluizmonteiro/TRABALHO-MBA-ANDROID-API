@@ -19,12 +19,12 @@ public class CarroController {
 
 
     @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody  Carro carro){
+    public ResponseEntity<Carro> cadastrar(@RequestBody  Carro carro){
         try{
             carroService.salvar(carro);
-            return ResponseEntity.status(HttpStatus.CREATED).body(carro.toString());
+            return ResponseEntity.status(HttpStatus.CREATED).body(carro);
         }catch (Exception e){
-            return ResponseEntity.status(400).body(e.getMessage());
+            return ResponseEntity.status(400).body(null);
         }
     }
     @GetMapping("/placa/{placa}")
