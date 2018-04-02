@@ -19,6 +19,8 @@ public class Carro {
 
     private int anoLancamento;
 
+    private String urlImagem;
+
 
     private Double valor;
 
@@ -68,5 +70,13 @@ public class Carro {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 }
