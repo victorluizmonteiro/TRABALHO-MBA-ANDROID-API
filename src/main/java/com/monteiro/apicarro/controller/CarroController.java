@@ -17,35 +17,35 @@ public class CarroController {
     private CarroService carroService;
 
 
-
     @PostMapping
-    public ResponseEntity<Carro> cadastrar(@RequestBody  Carro carro){
-        try{
+    public ResponseEntity<Carro> cadastrar(@RequestBody Carro carro) {
+        try {
             carroService.salvar(carro);
             return ResponseEntity.status(HttpStatus.CREATED).body(carro);
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(400).body(null);
         }
     }
+
     @GetMapping("/placa/{placa}")
-    public ResponseEntity<Optional<Carro>>buscarPelaPlaca(@PathVariable("placa") String placa){
-            Optional<Carro> carro = carroService.buscarPelaPlaca(placa);
+    public ResponseEntity<Optional<Carro>> buscarPelaPlaca(@PathVariable("placa") String placa) {
+        Optional<Carro> carro = carroService.buscarPelaPlaca(placa);
 
 
-           if(!carro.isPresent()){
-               return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
-           }
+        if (!carro.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
 
-           return ResponseEntity.ok().body(carro);
-
+        return ResponseEntity.ok().body(carro);
 
 
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Carro>> buscarPeloId(@PathVariable("id") String id){
+    public ResponseEntity<Optional<Carro>> buscarPeloId(@PathVariable("id") String id) {
         Optional<Carro> carro = carroService.buscarPorId(id);
 
-        if(!carro.isPresent()){
+        if (!carro.isPresent()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
         return ResponseEntity.ok().body(carro);
@@ -53,18 +53,18 @@ public class CarroController {
     }
 
     @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<Carro> deletar(@PathVariable("id") String id){
+    public ResponseEntity<Carro> deletar(@PathVariable("id") String id) {
         Optional<Carro> carro = carroService.buscarPorId(id);
-        try{
+        try {
             carroService.remover(carro.get());
             return ResponseEntity.ok(carro.get());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(null);
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<Carro>>buscarTodos(){
+    public ResponseEntity<List<Carro>> buscarTodos() {
         return ResponseEntity.ok(carroService.listarTodos());
     }
 }

@@ -21,36 +21,34 @@ public class CarroService {
     public Carro salvar(Carro carro) {
 
 
-            carroRepository.save(carro);
-            return carro;
+        carroRepository.save(carro);
+        return carro;
 
     }
 
-    public List<Carro> listarTodos(){
+    public List<Carro> listarTodos() {
         return carroRepository.findAll();
     }
 
-    public Optional<Carro> buscarPorId(String id){
+    public Optional<Carro> buscarPorId(String id) {
 
-         Optional<Carro> carro = carroRepository.findById(id);
+        Optional<Carro> carro = carroRepository.findById(id);
 
-         return carro;
-
-
+        return carro;
 
 
     }
 
-    public Optional<Carro> buscarPelaPlaca(String placa){
+    public Optional<Carro> buscarPelaPlaca(String placa) {
         Optional<Carro> carro = Optional.ofNullable(carroRepository.findByPlaca(placa));
 
 
-       return carro;
+        return carro;
 
 
     }
 
-    public void remover(Carro carro){
+    public void remover(Carro carro) {
 
         carroRepository.delete(carro);
     }

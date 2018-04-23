@@ -1,21 +1,19 @@
 package com.monteiro.apicarro.model;
 
 
-import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+
 @Document(collection = "carro")
 public class Carro {
     @Id
-    private String id;
+    private String placa;
 
     private String marca;
 
     private String modelo;
-    private String placa;
+
 
     private int anoLancamento;
 
@@ -24,13 +22,6 @@ public class Carro {
 
     private Double valor;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getMarca() {
         return marca;
