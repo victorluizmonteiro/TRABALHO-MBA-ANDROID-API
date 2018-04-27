@@ -18,40 +18,29 @@ public class CarroController {
 
 
     @PostMapping
-    public Carro cadastrar(@RequestBody Carro carro) {
-        try {
+    public void cadastrar(@RequestBody Carro carro) {
+
             carroService.salvar(carro);
-            return carro;
-        } catch (Exception e) {
-            return null;
-        }
+
+
+
     }
 
     @GetMapping("/{placa}")
     public Carro buscarPelaPlaca(@PathVariable("placa") String placa) {
-        Optional<Carro> carro = carroService.buscarPelaPlaca(placa);
+        Carro carro = carroService.buscarPelaPlaca(placa);
 
-
-        if (!carro.isPresent()) {
-            return null;
-        }
-
-        return carro.get();
-
+        return carro;
 
     }
 
 
 
-    @DeleteMapping("/deletar/{id}")
-    public Carro deletar(@PathVariable("id") String id) {
-        Optional<Carro> carro = carroService.buscarPorId(id);
-        try {
-            carroService.remover(carro.get());
-            return carro.get();
-        } catch (Exception e) {
-            return null;
-        }
+    @DeleteMapping("/deletar/{placa}")
+    public void deletar(@PathVariable("id") String placa) {
+       Carro carro = carroService.buscarPelaPlaca(placa);
+       carroService.remover(carro);
+
     }
 
     @GetMapping

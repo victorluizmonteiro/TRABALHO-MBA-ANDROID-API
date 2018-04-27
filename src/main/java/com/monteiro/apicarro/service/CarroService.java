@@ -30,17 +30,10 @@ public class CarroService {
         return carroRepository.findAll();
     }
 
-    public Optional<Carro> buscarPorId(String id) {
-
-        Optional<Carro> carro = carroRepository.findById(id);
-
-        return carro;
 
 
-    }
-
-    public Optional<Carro> buscarPelaPlaca(String placa) {
-        Optional<Carro> carro = Optional.ofNullable(carroRepository.findByPlaca(placa));
+    public Carro buscarPelaPlaca(String placa) {
+        Carro carro =carroRepository.findByPlaca(placa);
 
 
         return carro;
