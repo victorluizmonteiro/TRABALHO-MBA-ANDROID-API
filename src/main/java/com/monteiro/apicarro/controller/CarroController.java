@@ -27,7 +27,7 @@ public class CarroController {
         }
     }
 
-    @GetMapping("/placa/{placa}")
+    @GetMapping("/{placa}")
     public Carro buscarPelaPlaca(@PathVariable("placa") String placa) {
         Optional<Carro> carro = carroService.buscarPelaPlaca(placa);
 
