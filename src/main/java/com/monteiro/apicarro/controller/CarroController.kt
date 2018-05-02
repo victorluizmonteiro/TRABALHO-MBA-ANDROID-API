@@ -32,7 +32,7 @@ class CarroController {
 
 
     @DeleteMapping("/deletar/{placa}")
-    fun deletar(@PathVariable("id") placa: String) {
+    fun deletar(@PathVariable("placa") placa: String) {
         val carro = carroService!!.buscarPelaPlaca(placa)
         carroService.remover(carro)
 
