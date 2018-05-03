@@ -15,7 +15,7 @@ class UserController {
     @PostMapping
     fun cadastrar(@RequestBody user:User){
 
-        userService.salvar(user)
+        userService!!.salvar(user)
 
     }
     @GetMapping("/{username}")
