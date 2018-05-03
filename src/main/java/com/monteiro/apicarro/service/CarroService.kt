@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service
 import java.util.Optional
 
 @Service
-class CarroService @Autowired
+class CarroService
+
+@Autowired
 constructor(private val carroRepository: CarroRepository) {
 
     fun salvar(carro: Carro): Carro {
